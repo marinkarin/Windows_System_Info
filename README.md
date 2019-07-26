@@ -5,3 +5,10 @@ A PowerShell script that runs a few basic system checks. It's using a menu inter
 # Requirements
 
 Admin access is needed to run the script as well as Remote Server Administation Tool (RSAT) installed
+
+ 
+# TODO
+
+- [ ] Create functions for all commands  
+
+- [ ] Lots more...
