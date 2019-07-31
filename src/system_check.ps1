@@ -17,7 +17,7 @@ function Show-Menu
      Write-Host "Q: Press 'Q' to quit."
 }
 
-function Guts
+function Select
 {
 do
 { 
@@ -28,18 +28,12 @@ do
            '1' {
                 cls
                 'You chose option #1'
-                Test-ComputerSecureChannel -Server "your donmain here" ##you can put your company's domain info here
-                    if ('True'){
-                        'You can reach our domain!'
-                         } Else{
-                         'Cannot reach it :('
-                         }
+                Domain-Check
+              
            } '2' {
                 cls
                 'You chose option #2'
-                (Get-WMIObject win32_operatingsystem).name
-                (Get-WmiObject Win32_OperatingSystem).OSArchitecture
-                (Get-WmiObject Win32_OperatingSystem).CSName
+                Hostname
       
            } '3' {
                 cls
@@ -71,5 +65,23 @@ do
 until ($input -eq 'q')
 }
 
+##Functions
+Function Domain-Check{
+##you can put your company's domain info here
+    Test-ComputerSecureChannel -Server "testing" 
+    if ('True'){
+        'You can reach our domain!'
+               } Else{
+                    'Cannot reach it :('
+                     }
+                     }
+
+Function Hostname{
+    (Get-WMIObject win32_operatingsystem).name
+    (Get-WmiObject Win32_OperatingSystem).OSArchitecture
+    (Get-WmiObject Win32_OperatingSystem).CSName
+                 }
+
+
 fun
-Guts
+Select
