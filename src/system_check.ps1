@@ -17,63 +17,61 @@ function Show-Menu
      Write-Host "Q: Press 'Q' to quit."
 }
 
-function Select
+function Run-Menu
 {
-do
-{ 
-     Show-Menu
-     $input = Read-Host "Please make a selection"
-     switch ($input)
-     {
-           '1' {
-                cls
-                'You chose option #1'
-                Domain-Check
-              
-           } '2' {
-                cls
-                'You chose option #2'
-                Hostname
-      
-           } '3' {
-                cls
-                'You chose option #3'
-                Get-PSDrive
-           }  '4' {
-                cls
-                'You chose option #4'
-                Get-NetIPAddress –AddressFamily IPv4 | Select-Object IPAddres                 
-           }  
-              '5'{
-                Get-Service -DisplayName "Windows Defnder Advanced Thread Protection Service"
-
-           }  
-              '6'{
-                Get-Childitem C:\Users\Public\Desktop
-
-           } 
-              'q'{
-                return
+do{ 
+    Show-Menu
+    $input = Read-Host "Please make a selection"
+    switch ($input){
+    '1'{
+        cls
+        'You chose option #1'
+        Domain-Check
+       } 
+    '2'{
+        cls
+        'You chose option #2'
+        Hostname
+       } 
+    '3'{
+        cls
+        'You chose option #3'
+        Get-PSDrive
+       }  
+    '4'{
+        cls
+        'You chose option #4'
+        Get-NetIPAddress –AddressFamily IPv4 | Select-Object IPAddres                 
+       }  
+    '5'{
+        Get-Service -DisplayName "Windows Defnder Advanced Thread Protection Service"
+       }  
+    '6'{
+        Get-Childitem C:\Users\Public\Desktop
+       } 
+    'q'{
+        return
+       }
+    default{
+        cls
+        'Please enter 1-5'
            }
-                default{
-                cls
-                'Please enter 1-5'
-           }
-     }
-     pause
-}
-until ($input -eq 'q')
+                    }
+    pause
+  }
+    until ($input -eq 'q')
 }
 
 ##Functions
 Function Domain-Check{
 ##you can put your company's domain info here
-    Test-ComputerSecureChannel -Server "testing" 
+    Test-ComputerSecureChannel -Server "test.domain" 
     if ('True'){
         'You can reach our domain!'
-               } Else{
-                    'Cannot reach it :('
-                     }
+               } 
+    Else{
+        'Cannot reach it :('
+               }
                      }
 
 Function Hostname{
@@ -83,5 +81,6 @@ Function Hostname{
                  }
 
 
-fun
-Select
+
+fun 
+Run-Menu
