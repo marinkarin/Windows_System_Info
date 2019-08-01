@@ -1,4 +1,4 @@
-﻿
+
 function Show-Menu
 {
     param(
@@ -44,7 +44,7 @@ do{
         Get-NetIPAddress –AddressFamily IPv4 | Select-Object IPAddres                 
        }  
     '5'{
-        Get-Service -DisplayName "Windows Defnder Advanced Thread Protection Service"
+        Get-Service -Name "Sense"
        }  
     '6'{
         Get-Childitem C:\Users\Public\Desktop
@@ -79,8 +79,6 @@ Function Hostname{
     (Get-WmiObject Win32_OperatingSystem).OSArchitecture
     (Get-WmiObject Win32_OperatingSystem).CSName
                  }
-
-
 
 fun 
 Run-Menu
