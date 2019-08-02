@@ -7,13 +7,13 @@ function Show-Menu
     cls
     Write-Host "================ $Testing ================"
 
-     Write-Host "1: Is the Domain reachable?"
+     Write-Host "1: Is the domain reachable?"
      Write-Host "2: OS info."
-     Write-Host "3: Disk Space Check"
+     Write-Host "3: Checking disk space"
      Write-Host "4: Network Info"
-     Write-Host "5: Check software installs"
-     Write-Host "6: Are the desktop shortcuts okay?"
-     Write-Host "7: Are the desktop shortcuts okay?"
+     Write-Host "5: Checking Software Installs"
+     Write-Host "6: Checking desktop shortcuts"
+     Write-Host "7: Checking BitLocker Status"
      Write-Host "Q: Press 'Q' to quit."
 }
 
