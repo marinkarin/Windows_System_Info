@@ -41,7 +41,7 @@ do{
     '4'{
         cls
         'You chose option #4'
-        Get-NetIPAddress –AddressFamily IPv4 | Select-Object IPAddres                 
+        Get-NetIPAddress -AddressFamily IPv4 | Select-Object IPAddres                 
        }  
     '5'{
         Get-Service -Name "Sense"
@@ -79,6 +79,8 @@ Function Hostname{
     (Get-WmiObject Win32_OperatingSystem).OSArchitecture
     (Get-WmiObject Win32_OperatingSystem).CSName
                  }
+
+Function Check-Diskspace
 
 fun 
 Run-Menu
