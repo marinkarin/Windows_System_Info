@@ -36,7 +36,7 @@ do{
     '3'{
         cls
         'You chose option #3'
-        Get-PSDrive
+        Check-Diskspace
        }  
     '4'{
         cls
@@ -72,15 +72,20 @@ Function Domain-Check{
     Else{
         'Cannot reach it :('
                }
-                     }
+}
 
 Function Hostname{
-    (Get-WMIObject win32_operatingsystem).name
-    (Get-WmiObject Win32_OperatingSystem).OSArchitecture
-    (Get-WmiObject Win32_OperatingSystem).CSName
-                 }
+    (Get-CimInstance win32_operatingsystem).name
+    (Get-CimInstance Win32_OperatingSystem).OSArchitecture
+    (Get-CimInstance Win32_OperatingSystem).CSName
+}
 
-Function Check-Diskspace
+Function Check-Diskspace{
+    (Get-CimInstance -Class Win32_logicaldisk -Filter "DriveType = '3'" | 
+    Select-Object -Property DeviceID, DriveType, VolumeName, 
+    @{L='FreeSpaceGB';E={"{0:N2}" -f ($_.FreeSpace /1GB)}},
+    @{L="Capacity";E={"{0:N2}" -f ($_.Size/1GB)}})
+}
 
 fun 
 Run-Menu
