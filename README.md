@@ -8,7 +8,7 @@ Useful for system admins to test systems before deployment
 Admin access is needed to run the script to run some commmands; Additionally, Remote Server Administation Tool (RSAT) is needed too.
 
  
-# TODO
+# TODOs
 
 - [ ] Write functions for all commands  
 
