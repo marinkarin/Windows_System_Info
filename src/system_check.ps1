@@ -1,4 +1,4 @@
-
+﻿
 function Show-Menu
 {
     param(
@@ -9,11 +9,11 @@ function Show-Menu
 
      Write-Host "1: Is the domain reachable?"
      Write-Host "2: OS info."
-     Write-Host "3: Checking disk space"
-     Write-Host "4: Network Info"
+     Write-Host "3: Check disk space"
+     Write-Host "4: Check Bitlocker Status"
      Write-Host "5: Checking Software Installs"
      Write-Host "6: Checking desktop shortcuts"
-     Write-Host "7: Checking BitLocker Status"
+     Write-Host "7: Placeholder"
      Write-Host "Q: Press 'Q' to quit."
 }
 
@@ -41,12 +41,17 @@ do{
     '4'{
         cls
         'You chose option #4'
-        Get-NetIPAddress -AddressFamily IPv4 | Select-Object IPAddres                 
-       }  
+        Check-Encryption             
+       }
     '5'{
+        cls
+        'You chose option #4'
+        Get-NetIPAddress -AddressFamily IPv4 | Select-Object IPAddres                 
+       }           
+    '6'{
         Get-Service -Name "Sense"
        }  
-    '6'{
+    '7'{
         Get-Childitem C:\Users\Public\Desktop
        } 
     'q'{
@@ -85,6 +90,10 @@ Function Check-Diskspace{
     Select-Object -Property DeviceID, DriveType, VolumeName, 
     @{L='FreeSpaceGB';E={"{0:N2}" -f ($_.FreeSpace /1GB)}},
     @{L="Capacity";E={"{0:N2}" -f ($_.Size/1GB)}})
+}
+
+Function Check-Encryption{
+    (Get-BitLockerVolume -MountPoint "C:")
 }
 
 fun 
