@@ -11,7 +11,7 @@ function Show-Menu
      Write-Host "2: OS info."
      Write-Host "3: Check disk space"
      Write-Host "4: Check Bitlocker Status"
-     Write-Host "5: Placeholder"
+     Write-Host "5: Check DNS info"
      Write-Host "6: Placeholder"
      Write-Host "7: Placeholder"
      Write-Host "Q: Press 'Q' to quit."
@@ -44,7 +44,9 @@ do{
         Check-Encryption             
     }
     '5'{
-                        
+        cls
+        'You selected option #5'
+        Check-DNS                
     }           
     '6'{
         
@@ -91,6 +93,10 @@ Function Check-Diskspace{
 
 Function Check-Encryption{
     (Get-BitLockerVolume -MountPoint "C:")
+}
+
+Function Check-DNS{
+    (Get-DNSClientServerAddress -InterfaceAlias Ethernet,Wi-Fi -AddressFamily IPv4)
 }
 
 fun 
