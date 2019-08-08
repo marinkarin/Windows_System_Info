@@ -1,11 +1,11 @@
 # Windows Sysinfo
 
 A PowerShell script that runs a few basic system checks.
-Useful for system admins to test systems before deployment
+It maybe useful for system admins testing systems before deployment
 
 # Requirements
 
-Admin access is needed to run the script to run some commmands; Additionally, Remote Server Administation Tool (RSAT) is needed too.
+Admin access is needed to run a few cmdlets; Additionally, [Remote Server Administation Tool (RSAT)](https://www.microsoft.com/en-us/download/details.aspx?id=45520 "RSAT Link") is needed for a few cmdlets as well.
 
  
 # TODOs
