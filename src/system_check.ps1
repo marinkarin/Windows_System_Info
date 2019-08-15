@@ -12,7 +12,7 @@ function Show-Menu
      Write-Host "3: Check disk space"
      Write-Host "4: Check Bitlocker Status"
      Write-Host "5: Check DNS info"
-     Write-Host "6: Placeholder"
+     Write-Host "6: Check IP info"
      Write-Host "7: Placeholder"
      Write-Host "Q: Press 'Q' to quit."
 }
@@ -49,6 +49,9 @@ do{
         Check-DNS                
     }           
     '6'{
+        cls
+        'You selected option #6'
+        Check-IP   
         
     }  
     '7'{
@@ -98,6 +101,11 @@ Function Check-Encryption{
 Function Check-DNS{
     (Get-DNSClientServerAddress -InterfaceAlias Ethernet,Wi-Fi -AddressFamily IPv4)
 }
+
+Function Check-IP{
+    (Get-NetIPAddress -AddressFamily IPv4 -InterfaceAlias Wi-Fi,Ethernet | Format-Table)
+}
+
 
 fun 
 Run-Menu
