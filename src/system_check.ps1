@@ -13,7 +13,7 @@ function Show-Menu
      Write-Host "4: Check Bitlocker Status"
      Write-Host "5: Check DNS info"
      Write-Host "6: Check IP info"
-     Write-Host "7: Placeholder"
+     Write-Host "7: Check Desktop Shortcuts"
      Write-Host "Q: Press 'Q' to quit."
 }
 
@@ -55,7 +55,9 @@ do{
         
     }  
     '7'{
-            
+        cls
+        'You selected option #7'
+        Check-Shortcuts             
     } 
     'q'{
         return
@@ -104,6 +106,10 @@ Function Check-DNS{
 
 Function Check-IP{
     (Get-NetIPAddress -AddressFamily IPv4 -InterfaceAlias Ethernet, Wi-Fi | Format-Table)
+}
+
+Function Check-Shortcuts{
+    (Get-ChildItem -Path C:\Users\Public\Desktop)
 }
 
 fun 
