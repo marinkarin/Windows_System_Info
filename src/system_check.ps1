@@ -99,13 +99,12 @@ Function Check-Encryption{
 }
 
 Function Check-DNS{
-    (Get-DNSClientServerAddress -InterfaceAlias Ethernet,Wi-Fi -AddressFamily IPv4)
+    (Get-DNSClientServerAddress -AddressFamily IPv4 -InterfaceAlias Ethernet, Wi-Fi | Format-Table)
 }
 
 Function Check-IP{
-    (Get-NetIPAddress -AddressFamily IPv4 -InterfaceAlias Wi-Fi,Ethernet | Format-Table)
+    (Get-NetIPAddress -AddressFamily IPv4 -InterfaceAlias Ethernet, Wi-Fi | Format-Table)
 }
-
 
 fun 
 Run-Menu
