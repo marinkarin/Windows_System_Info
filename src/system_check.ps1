@@ -126,7 +126,7 @@ Function Check-Service{
         (write-host $ServiceName 'is not running on this machine!')
     }
     Else{
-        (write-host $ServiceName 'is not running!'')
+        (write-host $ServiceName 'is running!')
     }
 }
 
