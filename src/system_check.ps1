@@ -14,6 +14,7 @@ function Show-Menu
      Write-Host "5: Check DNS info"
      Write-Host "6: Check IP info"
      Write-Host "7: Check Desktop Shortcuts"
+     Write-Host "8: Check Services"
      Write-Host "Q: Press 'Q' to quit."
 }
 
@@ -58,6 +59,11 @@ do{
         cls
         'You selected option #7'
         Check-Shortcuts             
+    } 
+     '8'{
+        cls
+        'You selected option #8'
+        Check-Service             
     } 
     'q'{
         return
@@ -110,6 +116,18 @@ Function Check-IP{
 
 Function Check-Shortcuts{
     (Get-ChildItem -Path C:\Users\Public\Desktop)
+}
+
+Function Check-Service{
+    $ServiceName = 'Fax'
+    $ServiceCheck = Get-Service -Name $ServiceName
+
+    if ($ServiceCheck.Status -ne 'Running'){
+        (write-host $ServiceName 'is not running on this machine!')
+    }
+    Else{
+        (write-host $ServiceName 'is not running!'')
+    }
 }
 
 fun 
