@@ -10,7 +10,7 @@ Admin access is needed to run a few cmdlets; Additionally, [Remote Server Admini
  
 # TODOs
 
-- [ ] Write function to check running services
+- [x] Write function to check running services
 
 - [ ] Add testing
 
