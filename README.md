@@ -14,6 +14,8 @@ Admin access is needed to run a few cmdlets; Additionally, [Remote Server Admini
 
 - [ ] Add testing
 
+- [ ] General Refactoring
+
 - [ ] Maybe add a GUI?
 
 
