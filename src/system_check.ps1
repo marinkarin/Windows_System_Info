@@ -15,6 +15,8 @@ function Show-Menu
      Write-Host "6: Check IP info"
      Write-Host "7: Check Desktop Shortcuts"
      Write-Host "8: Check Services"
+     Write-Host "9: Check Group Policy Settings"
+     
      Write-Host "Q: Press 'Q' to quit."
 }
 
@@ -64,13 +66,18 @@ do{
         cls
         'You selected option #8'
         Check-Service             
-    } 
+    }
+     '9'{
+        cls
+        'You selected option #9'
+        Check-GPO             
+    }  
     'q'{
         return
 }
     default{
         cls
-        'Please enter 1-7'
+        'Please enter 1-9'
     }
 }
     pause
@@ -128,6 +135,10 @@ Function Check-Service{
     Else{
         (write-host $ServiceName 'is running!')
     }
+}
+
+Function Check-GPO{
+    (gpresult /r)
 }
 
 fun 
