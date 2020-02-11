@@ -1,5 +1,4 @@
-﻿
-function Show-Menu
+﻿function Show-Menu
 {
     param(
         [string]$Title = 'My Menu'
@@ -11,12 +10,9 @@ function Show-Menu
      Write-Host "2: OS info."
      Write-Host "3: Check disk space"
      Write-Host "4: Check Bitlocker Status"
-     Write-Host "5: Check DNS info"
-     Write-Host "6: Check IP info"
-     Write-Host "7: Check Desktop Shortcuts"
-     Write-Host "8: Check Services"
-     Write-Host "9: Check Group Policy Settings"
-     
+     Write-Host "5: Check IP info"   
+     Write-Host "6: Check Services"
+    
      Write-Host "Q: Press 'Q' to quit."
 }
 
@@ -46,38 +42,24 @@ do{
         'You chose option #4'
         Check-Encryption             
     }
+         
     '5'{
-        cls
-        'You selected option #5'
-        Check-DNS                
-    }           
-    '6'{
         cls
         'You selected option #6'
         Check-IP   
-        
     }  
-    '7'{
-        cls
-        'You selected option #7'
-        Check-Shortcuts             
-    } 
-     '8'{
+     '6'{
         cls
         'You selected option #8'
         Check-Service             
     }
-     '9'{
-        cls
-        'You selected option #9'
-        Check-GPO             
-    }  
+
     'q'{
         return
 }
     default{
         cls
-        'Please enter 1-9'
+        'Please enter 1-7'
     }
 }
     pause
@@ -113,17 +95,12 @@ Function Check-Encryption{
     (Get-BitLockerVolume -MountPoint "C:")
 }
 
-Function Check-DNS{
-    (Get-DNSClientServerAddress -AddressFamily IPv4 -InterfaceAlias Ethernet, Wi-Fi | Format-Table)
-}
 
 Function Check-IP{
     (Get-NetIPAddress -AddressFamily IPv4 -InterfaceAlias Ethernet, Wi-Fi | Format-Table)
+    (Get-DNSClientServerAddress -AddressFamily IPv4 -InterfaceAlias Ethernet, Wi-Fi | Format-Table)
 }
 
-Function Check-Shortcuts{
-    (Get-ChildItem -Path C:\Users\Public\Desktop)
-}
 
 Function Check-Service{
     $ServiceName = 'Fax'
@@ -135,10 +112,6 @@ Function Check-Service{
     Else{
         (write-host $ServiceName 'is running!')
     }
-}
-
-Function Check-GPO{
-    (gpresult /r)
 }
 
 fun 
