@@ -5,7 +5,12 @@ It maybe useful for system admins testing systems before deployment
 
 # Requirements
 
-Admin access is needed to run a few cmdlets; Additionally, [Remote Server Administation Tool (RSAT)](https://www.microsoft.com/en-us/download/details.aspx?id=45520 "RSAT Link") is needed for a few cmdlets as well.
+To run the script you can do the following
+
+1. Download and extract the .zip file
+2. Open PowerShell (or PowerShell ISE) as an Administrator
+3. On the prompt, change to the directory where you extracted the files: e.g. - cd c:\temp
+4. Next, to run either script, enter in the following: e.g. - .\system_check.ps1
 
  
 # TODOs

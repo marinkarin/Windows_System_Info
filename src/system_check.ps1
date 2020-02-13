@@ -95,12 +95,10 @@ Function Check-Encryption{
     (Get-BitLockerVolume -MountPoint "C:")
 }
 
-
 Function Check-IP{
     (Get-NetIPAddress -AddressFamily IPv4 -InterfaceAlias Ethernet, Wi-Fi | Format-Table)
     (Get-DNSClientServerAddress -AddressFamily IPv4 -InterfaceAlias Ethernet, Wi-Fi | Format-Table)
 }
-
 
 Function Check-Service{
     $ServiceName = 'Fax'
