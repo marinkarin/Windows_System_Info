@@ -9,8 +9,9 @@ To run the script you can do the following
 
 1. Download and extract the .zip file
 2. Open PowerShell (or PowerShell ISE) as an Administrator
-3. On the prompt, change to the directory where you extracted the files: e.g. - cd c:\temp
-4. Next, to run either script, enter in the following: e.g. - .\system_check.ps1
+3. Enable PowerShell execution <code>Set-ExecutionPolicy Unrestricted -Force</code>
+4. On the prompt, change to the directory where you extracted the files: e.g. - cd c:\temp
+5. Next, to run either script, enter in the following: e.g. - .\system_check.ps1
 
  
 # TODOs
