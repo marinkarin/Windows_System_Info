@@ -92,7 +92,8 @@ Function Check-Diskspace{
 }
 
 Function Check-Encryption{
-    (Get-BitLockerVolume -MountPoint "C:")
+    #(Get-BitLockerVolume -MountPoint "C:")
+    (manage-bde -status C:)
 }
 
 Function Check-IP{
