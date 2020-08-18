@@ -5,15 +5,13 @@
     )
     cls
     Write-Host "================ $Testing ================"
-
-     Write-Host "1: Is the domain reachable?"
-     Write-Host "2: OS info."
-     Write-Host "3: Check disk space"
-     Write-Host "4: Check Bitlocker Status"
-     Write-Host "5: Check IP info"   
-     Write-Host "6: Check Services"
-    
-     Write-Host "Q: Press 'Q' to quit."
+    Write-Host "1: Is the domain reachable?"
+    Write-Host "2: OS info."
+    Write-Host "3: Check disk space"
+    Write-Host "4: Check Bitlocker Status"
+    Write-Host "5: Check IP info"   
+    Write-Host "6: Check Services"
+    Write-Host "Q: Press 'Q' to quit."
 }
 
 function Run-Menu
@@ -50,8 +48,7 @@ do{
         } 'q'{
             return
         }
-
-     }
+      }
         pause
   }
     until ($input -eq 'q')
