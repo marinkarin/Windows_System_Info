@@ -21,48 +21,38 @@ function Run-Menu
 do{ 
     Show-Menu
     $input = Read-Host "Please make a selection"
-    switch ($input){
-    '1'{
-        cls
-        'You chose option #1'
-        Domain-Check
-    } 
-    '2'{
-        cls
-        'You chose option #2'
-        Hostname
-    } 
-    '3'{
-        cls
-        'You chose option #3'
-        Check-Diskspace
-    }  
-    '4'{
-        cls
-        'You chose option #4'
-        Check-Encryption             
-    }
-         
-    '5'{
-        cls
-        'You selected option #6'
-        Check-IP   
-    }  
-     '6'{
-        cls
-        'You selected option #8'
-        Check-Service             
-    }
+    switch ($input)
+    {
+        '1'{
+            cls
+            'You chose option #1'
+            Domain-Check
+        } '2'{
+            cls
+            'You chose option #2'
+            Hostname
+        } '3'{
+            cls
+            'You chose option #3'
+            Check-Diskspace
+        } '4'{
+            cls
+            'You chose option #4'
+            Check-Encryption             
+        } '5'{
+            cls
+            'You selected option #5'
+            Check-IP   
+        } '6'{
+            cls
+            'You selected option #6'
+            Check-Service             
+        } 'q'{
+            return
+        }
 
-    'q'{
-        return
-}
-    default{
-        cls
-        'Please enter 1-7'
-    }
-}
-    pause
+     }
+        pause
   }
     until ($input -eq 'q')
 }
